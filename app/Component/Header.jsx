@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="w-full border-b border-gray-200 bg-white py-[10px]">
+    <header className="w-full border-b border-gray-200 bg-white py-[10px] fixed z-10 ">
       <div className="mx-auto flex min-h-[68px] max-w-[1200px] items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8">
 
         {/* Logo */}
@@ -32,7 +32,7 @@ const Header = () => {
 
             <li>
               <a
-                href="/about-us"
+                href="/about"
                 className="text-gray-800 transition hover:text-blue-600"
               >
                 About Us
@@ -41,7 +41,7 @@ const Header = () => {
 
             <li>
               <a
-                href="/contact-us"
+                href="/contact"
                 className="text-gray-800 transition hover:text-blue-600"
               >
                 Contact Us

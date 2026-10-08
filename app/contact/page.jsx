@@ -6,9 +6,14 @@ import send from '../../images/send.png'
 import trustpadi from '../../images/trustshield.png'
 import dropdown from '../../images/chevron-down.png'
 
+import Header from '../Component/Header';
+import Footer from '../Component/Footer';
+
 export default function contact() {
   return (
-    <div className="min-h-screen bg-white font-sans flex justify-center py-16 px-6 text-gray-900">
+    <>
+    <Header/>
+    <div className="min-h-screen bg-white font-sans flex justify-center py-16 px-6 text-gray-900 mt-20">
       
       {/* MAIN CONTENT WRAPPER */}
       <main className="w-full max-w-6xl space-y-24">
@@ -195,5 +200,7 @@ export default function contact() {
 
       </main>
     </div>
+    <Footer/>
+    </>
   );
 }
