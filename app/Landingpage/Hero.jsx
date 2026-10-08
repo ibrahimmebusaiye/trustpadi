@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-white mt-20">
       <div className="mx-auto grid min-h-[90vh] max-w-[1200px] grid-cols-1 items-center gap-12 px-6 py-12 lg:grid-cols-[1fr_380px] lg:px-8">
 
         {/* LEFT CONTENT */}

@@ -1,10 +1,9 @@
 import React from 'react'
-import Image from 'next/image'
 import Home from './Landingpage/Home'
 import Header from './Component/Header'
 import Footer from './Component/Footer'
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <Header />
@@ -14,5 +13,4 @@ const page = () => {
   )
 }
 
-export default page
-
+export default Page

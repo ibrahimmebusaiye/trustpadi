@@ -24,17 +24,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* @keyframes testimonial-scroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(calc(-50% - 10px));
-  }
-}
-
-.animate-testimonial-scroll {
-  animation: testimonial-scroll 25s linear infinite;
-} */
