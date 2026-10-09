@@ -1,13 +1,52 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const Footer = () => {
+  const footerRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const footer = footerRef.current;
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(footer);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const reveal = (delay = 0, direction = "up") => ({
+    opacity: visible ? 1 : 0,
+    transform: visible
+      ? "translate3d(0, 0, 0)"
+      : direction === "left"
+        ? "translate3d(-25px, 0, 0)"
+        : direction === "right"
+          ? "translate3d(25px, 0, 0)"
+          : "translate3d(0, 20px, 0)",
+    transition: `opacity 700ms ease ${delay}ms, transform 700ms ease ${delay}ms`,
+  });
+
   return (
-    <footer className="w-full border-t border-gray-300 bg-[#141111] text-white">
+    <footer
+      ref={footerRef}
+      className="w-full border-t border-gray-300 bg-[#141111] text-white"
+    >
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:items-start lg:px-8">
 
         {/* Brand */}
-        <div>
+        <div style={reveal(0, "left")}>
           <a href="/" className="inline-flex items-center">
             <img
               src="/Logo block (1).png"
@@ -27,7 +66,7 @@ const Footer = () => {
             <a
               href="#"
               aria-label="Facebook"
-              className="cursor-pointer text-gray-300 transition hover:text-white"
+              className="cursor-pointer text-gray-300 transition duration-300 hover:-translate-y-1 hover:text-white"
             >
               <img src="/facebook.png" alt="" />
             </a>
@@ -35,7 +74,7 @@ const Footer = () => {
             <a
               href="#"
               aria-label="Twitter"
-              className="cursor-pointer text-gray-300 transition hover:text-white"
+              className="cursor-pointer text-gray-300 transition duration-300 hover:-translate-y-1 hover:text-white"
             >
               <img src="/vector.png" alt="" />
             </a>
@@ -43,7 +82,7 @@ const Footer = () => {
             <a
               href="#"
               aria-label="Instagram"
-              className="cursor-pointer text-gray-300 transition hover:text-white"
+              className="cursor-pointer text-gray-300 transition duration-300 hover:-translate-y-1 hover:text-white"
             >
               <img src="/instagram.png" alt="" />
             </a>
@@ -51,7 +90,7 @@ const Footer = () => {
             <a
               href="#"
               aria-label="LinkedIn"
-              className="cursor-pointer text-gray-300 transition hover:text-white"
+              className="cursor-pointer text-gray-300 transition duration-300 hover:-translate-y-1 hover:text-white"
             >
               <img src="/linkdin.png" alt="" />
             </a>
@@ -59,7 +98,7 @@ const Footer = () => {
         </div>
 
         {/* Support */}
-        <div>
+        <div style={reveal(150)}>
           <ul className="space-y-5 text-[13px] text-gray-500">
             <li>
               <a
@@ -82,7 +121,7 @@ const Footer = () => {
         </div>
 
         {/* Legal */}
-        <div>
+        <div style={reveal(300)}>
           <ul className="space-y-5 text-[13px] text-gray-500">
             <li>
               <a
@@ -105,7 +144,10 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="lg:flex lg:justify-end">
+        <div
+          style={reveal(450, "right")}
+          className="lg:flex lg:justify-end"
+        >
           <p className="text-[13px] text-gray-500 pt-6">
             © 2025 Trustpadi. All right reserved.
           </p>
