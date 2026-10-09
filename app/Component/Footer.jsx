@@ -76,7 +76,7 @@ const Footer = () => {
               aria-label="Twitter"
               className="cursor-pointer text-gray-300 transition duration-300 hover:-translate-y-1 hover:text-white"
             >
-              <img src="/vector.png" alt="" />
+              <img src="/twitter.png" alt="" />
             </a>
 
             <a
