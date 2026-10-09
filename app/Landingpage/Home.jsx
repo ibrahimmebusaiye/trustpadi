@@ -112,7 +112,7 @@ const home = () => {
             </section>  
             <section className='min-h-[100vh] bg-white items-center justify-center flex'>
                 <div>
-                    <img src="/Frame 2147225578.png" alt="" />
+                    <img src="/Property 1=Frame 2147225586.png" alt="" />
                 </div>
             </section>
             <section className="w-full bg-white py-16">
